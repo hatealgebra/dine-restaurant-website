@@ -1,0 +1,108 @@
+---
+import landscapeMobile from "@images/homepage/enjoyable-place-mobile.jpg";
+import landscapeMobile2x from "@images/homepage/enjoyable-place-mobile@2x.jpg";
+import landscapeTablet from "@images/homepage/enjoyable-place-tablet.jpg";
+import landscapeTablet2x from "@images/homepage/enjoyable-place-tablet@2x.jpg";
+import landscapeDesktop from "@images/homepage/enjoyable-place-desktop.jpg";
+import landscapeDesktop2x from "@images/homepage/enjoyable-place-desktop@2x.jpg";
+
+import locallyMobile from "@images/homepage/locally-sourced-mobile.jpg";
+import locallyMobile2x from "@images/homepage/locally-sourced-mobile@2x.jpg";
+import locallyTablet from "@images/homepage/locally-sourced-tablet.jpg";
+import locallyTablet2x from "@images/homepage/locally-sourced-tablet@2x.jpg";
+import locallyDesktop from "@images/homepage/locally-sourced-desktop.jpg";
+import locallyDesktop2x from "@images/homepage/locally-sourced-desktop@2x.jpg";
+
+import dividerLine from "@images/patterns/pattern-divide.svg";
+import patternRightTop from "@images/patterns/pattern-curve-top-right.svg";
+import patterLeftTop from "@images/patterns/pattern-curve-top-left.svg";
+import patternLines from "@images/patterns/pattern-lines.svg";
+---
+
+<section
+  class="relative px-[24px] text-center bg-90 bg-gradient-to-b from-black via-transparent via-5% to-white from-5% desktop:bg-none desktop:text-left desktop:px-[16.5rem]"
+>
+  <div class="desktop:flex desktop:gap-[12.5rem] desktop:items-center">
+    <img
+      class="absolute top-[10%] left-0 right-0 z-0 h-[32rem] w-[50%] desktop:w-[60%] desktop:top-[15%]"
+      srcset={`${patternRightTop.src} 758w`}
+      alt="Pattern with right top corner"
+    />
+    <picture class="relative bg-url w-fit z-10 desktop:bottom-32">
+      <source
+        media="(min-width:1440px)"
+        srcset={`${landscapeDesktop.src} 1x, ${landscapeDesktop2x.src} 2x`}
+      />
+      <source
+        media="(min-width:758px)"
+        srcset={`${landscapeTablet.src} 1x, ${landscapeTablet2x.src} 2x`}
+      />
+      <img
+        class="w-full shadow-drop max-w-[573px] mx-auto desktop:mx-0 desktop:max-w-[540px]"
+        srcset={`${landscapeMobile.src} 1x, ${landscapeMobile2x.src} 2x`}
+        alt="Enjoyable landscape"
+      />
+    </picture>
+    <div>
+      <img
+        class="m-auto mt-20 desktop:mx-0"
+        src={dividerLine.src}
+        alt="Divider line"
+      />
+      <h2 class="mt-9 desktop:mt-20">
+        Enjoyable place <br /> for all the family
+      </h2>
+      <p class="mt-[13px] pb-40 max-w-[457px] mx-auto">
+        Our relaxed surroundings make dining with us a great experience for
+        everyone. We can even arrange a tour of the farm before your meal.
+      </p>
+    </div>
+  </div>
+  <div
+    class="desktop:flex desktop:flex-row-reverse desktop:gap-[12.5rem] desktop:items-center"
+  >
+    <div class="tablet:relative">
+      <picture class="relative bg-url w-fit z-10 desktop:top-32">
+        <source
+          media="(min-width:1440px)"
+          srcset={`${locallyDesktop.src} 1x, ${locallyDesktop2x.src} 2x`}
+        />
+        <source
+          media="(min-width:758px)"
+          srcset={`${locallyTablet.src} 1x, ${locallyTablet2x.src} 2x`}
+        />
+        <img
+          class="w-full shadow-drop max-w-[573px] mx-auto"
+          srcset={`${locallyMobile.src} 1x, ${locallyMobile2x.src} 2x`}
+          alt="Locally sourced food"
+        />
+      </picture>
+      <img
+        class="hidden absolute tablet:block bottom-[10%] right-10 z-10 desktop:bottom-[48%] desktop:-right-40"
+        src={patternLines.src}
+        alt="Gold pattern lines"
+      />
+    </div>
+    <div class="desktop:relative desktop:top-32">
+      <img
+        class="mx-auto mt-20 desktop:mx-0"
+        src={dividerLine.src}
+        alt="Divider line"
+      />
+      <h2 class="mt-9 desktop:mt-[5.5rem]">
+        The most locally <br />sourced food
+      </h2>
+      <p
+        class="mt-[1.3rem] pb-40 max-w-[457px] desktop:mt-[2.7rem] mx-auto tablet:pb-48"
+      >
+        All our ingredients come directly from our farm or local fishery. So you
+        can be sure that you’re eating the freshest, most sustainable food.
+      </p>
+    </div>
+    <img
+      class="hidden absolute -bottom-[5%] h-[320px] w-[50%] right-0 tablet:block desktop:w-[62%] desktop:bottom-0"
+      src={patterLeftTop.src}
+      alt="Pattern with left top corner"
+    />
+  </div>
+</section>

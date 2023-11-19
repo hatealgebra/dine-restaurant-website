@@ -1,0 +1,11 @@
+---
+import logo from "@images/logo.svg";
+
+const { isBig } = Astro.props;
+---
+
+<img
+  class={`${isBig ? "h-16" : "h-10"} tablet:h-16`}
+  src={logo.src}
+  alt="Dine logo"
+/>

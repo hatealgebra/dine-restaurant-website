@@ -1,0 +1,44 @@
+---
+import heroMobile from "@images/homepage/hero-bg-mobile.jpg";
+import heroMobile2x from "@images/homepage/hero-bg-mobile@2x.jpg";
+import heroTablet from "@images/homepage/hero-bg-tablet.jpg";
+import heroTablet2x from "@images/homepage/hero-bg-tablet@2x.jpg";
+import heroDesktop from "@images/homepage/hero-bg-desktop.jpg";
+import heroDesktop2x from "@images/homepage/hero-bg-desktop@2x.jpg";
+
+import Logo from "@components/Logo.astro";
+import Button from "@components/Button.tsx";
+---
+
+<header
+  class="relative flex flex-col text-center h-[90vh] desktop:text-left desktop:h-95vh"
+>
+  <picture class="absolute bg-url w-full h-full overflow-hidden">
+    <source
+      media="(min-width: 769px)"
+      srcset={`${heroDesktop.src} 1x, ${heroDesktop2x.src} 2x`}
+    />
+    <source
+      media="(min-width: 500px)"
+      srcset={`${heroTablet.src} 1x, ${heroTablet2x.src} 2x`}
+    />
+    <img
+      class="w-full"
+      srcset={`${heroMobile.src} 1x, ${heroMobile2x.src} 2x`}
+      alt="Hero image with shrimps"
+    />
+  </picture>
+  <div
+    class="text-white z-10 mt-[55%] px-[24px] flex flex-col items-center desktop:mt-[6.5rem] desktop:px-[16.5rem] desktop:items-start"
+  >
+    <Logo />
+    <h1 class="mt-9 desktop:mt-[15.3rem]">
+      Exquisite dining <br /> since 1989
+    </h1>
+    <p class="mt-5 max-w-5xl desktop:max-w-[44.5rem]">
+      Experience our seasonal menu in beautiful country surroundings. Eat the
+      freshest produce from the comfort of our farmhouse.
+    </p>
+    <Button tailwind="mt-[53px] desktop:mt-16">Book a table</Button>
+  </div>
+</header>

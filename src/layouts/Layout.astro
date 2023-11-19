@@ -1,0 +1,66 @@
+---
+import Logo from "@components/Logo.astro";
+import "@styles/index.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main class="bg-white">
+      <slot />
+    </main>
+    <footer
+      class="bg-codGray text-white text-sm uppercase font-light pt-32 pb-[7.8rem] px-[2.4rem] flex flex-col items-center text-center
+      tablet:grid tablet:items-start tablet:px-16 tablet:text-left tablet:gap-x-52 tablet:gap-y-[3.2rem] tablet:auto-cols-max
+      desktop:justify-center desktop:gap-x-[19.3rem]"
+    >
+      <Logo isBig />
+      <ul class="tablet:col-start-2 tablet:col-end-3">
+        <li>Marthwaite, Sedbergh</li>
+        <li>Cumbria</li>
+        <li>+00 44 123 4567</li>
+      </ul>
+      <ul
+        class="tablet:col-start-2 tablet:col-end-3 desktop:col-start-3 desktop:col-end-4"
+      >
+        <li>Open times</li>
+        <li>MON - FRI: 09:00 AM - 10:00 PM</li>
+        <li>SAT - SUN: 09:00 AM - 11:30 PM</li>
+      </ul>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "League Spartan";
+    src: url("../assets/LeagueSpartan.ttf") format("truetype");
+    font-weight: 100 800;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    font-family: "League Spartan", sans-serif;
+    height: 100%;
+  }
+</style>

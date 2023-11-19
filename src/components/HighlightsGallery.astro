@@ -1,0 +1,106 @@
+---
+import divideLine from "@images/patterns/pattern-divide.svg";
+
+import salmonMobile from "@images/homepage/salmon-mobile.jpg";
+import salmonMobile2x from "@images/homepage/salmon-mobile@2x.jpg";
+import salmonDesktop from "@images/homepage/salmon-desktop-tablet.jpg";
+import salmonDesktop2x from "@images/homepage/salmon-desktop-tablet@2x.jpg";
+
+import beefMobile from "@images/homepage/beef-mobile.jpg";
+import beefMobile2x from "@images/homepage/beef-mobile@2x.jpg";
+import beefDesktop from "@images/homepage/beef-desktop-tablet.jpg";
+import beefDesktop2x from "@images/homepage/beef-desktop-tablet@2x.jpg";
+
+import chocolateMobile from "@images/homepage/chocolate-mobile.jpg";
+import chocolateMobile2x from "@images/homepage/chocolate-mobile@2x.jpg";
+import chocolateDesktop from "@images/homepage/chocolate-desktop-tablet.jpg";
+import chocolateDesktop2x from "@images/homepage/chocolate-desktop-tablet@2x.jpg";
+
+const items = [
+  {
+    name: "salmon",
+    title: "Seared Salmon Fillet",
+    desc: "Our locally sourced salmon served with a refreshing buckwheat summer salad.",
+    images: {
+      mobile: salmonMobile,
+      mobile2x: salmonMobile2x,
+      desktop: salmonDesktop,
+      desktop2x: salmonDesktop2x,
+    },
+  },
+  {
+    name: "beef",
+    title: "Rosemary Filet Mignon",
+    desc: "Our prime beef served to your taste with a delicious choice of seasonal sides.",
+    images: {
+      mobile: beefMobile,
+      mobile2x: beefMobile2x,
+      desktop: beefDesktop,
+      desktop2x: beefDesktop2x,
+    },
+  },
+  {
+    name: "chocolate",
+    title: "Summer Fruit Chocolate Mousse",
+    desc: "Creamy mousse combined with summer fruits and dark chocolate shavings.",
+    images: {
+      mobile: chocolateMobile,
+      mobile2x: chocolateMobile2x,
+      desktop: chocolateDesktop,
+      desktop2x: chocolateDesktop2x,
+    },
+  },
+];
+---
+
+<section
+  class="bg-[#111] text-white pt-28 pb-[10.2rem] px-[2.4rem] flex flex-col items-center text-center
+  desktop:pt-80 desktop:px-[16.5rem] desktop:text-left desktop:flex-row desktop:content-between desktop:gap-[12.5rem] desktop:items-start"
+>
+  <div class="flex flex-col items-center max-w-[445px] desktop:items-start">
+    <img src={divideLine.src} alt="Divide line" />
+    <h2 class="mt-14 max-w-[445px] desktop:mt-[5.5rem]">
+      A few highlights from our menu
+    </h2>
+    <p class="mt-[13px]">
+      We cater for all dietary requirements, but here’s a glimpse at some of our
+      diner’s favourites. Our menu is revamped every season.
+    </p>
+  </div>
+  <div
+    class="mt-[85px] flex flex-col gap-32 tablet:text-left max-w-[573px] tablet:gap-[2.4rem] desktop:mt-[5.5rem]"
+  >
+    {
+      items.map(({ title, desc, images }, index) => (
+        <div
+          class={`tablet:grid tablet:gap-x-12 tablet:auto-rows-auto] ${
+            index !== 2 &&
+            "tablet:border-b tablet:border-[rgba(255,255,255,.2)] tablet:pb-[2.4rem]"
+          }`}
+        >
+          <picture class="bg-url w-full tablet:row-start-1 tablet:row-end-3 tablet:col-start-1 tablet:color-end-2">
+            <source
+              media="(min-width:1440px)"
+              srcset={`${images.desktop.src} 1x, ${images.desktop2x.src} 2x`}
+            />
+            <img
+              class="
+                  w-full shadow-drop max-w-[327px] mx-auto]
+                  tablet:max-w-[128px]
+                  tablet:after:z-10  tablet:after:content-['Hello world'] tablet:after:w-[32px] tablet:after:h-[1px] tablet:after:bg-gold
+                "
+              srcset={`${images.mobile.src} 1x, ${images.mobile2x.src} 2x`}
+              alt={`${title} dish`}
+            />
+          </picture>
+          <h3 class="mt-14 tablet:mt-[.8rem] tablet:row-start-1 tablet:row-end-2 tablet:col-start-2 tablet:col-end-3">
+            {title}
+          </h3>
+          <p class="mt-[6px] w-[90%] mx-auto tablet:mx-0 tablet:text-[1.6rem] desktop:text-[1.6rem]">
+            {desc}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

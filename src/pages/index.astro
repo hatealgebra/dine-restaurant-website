@@ -1,0 +1,47 @@
+---
+import readyMobile from "@images/homepage/ready-bg-mobile.jpg";
+import readyMobile2x from "@images/homepage/ready-bg-mobile@2x.jpg";
+import readyTablet from "@images/homepage/ready-bg-tablet.jpg";
+import readyTablet2x from "@images/homepage/ready-bg-tablet@2x.jpg";
+import readyDesktop from "@images/homepage/ready-bg-desktop.jpg";
+import readyDesktop2x from "@images/homepage/ready-bg-desktop@2x.jpg";
+
+import Layout from "../layouts/Layout.astro";
+
+import HighlightsGallery from "@components/HighlightsGallery.astro";
+import BookTable from "@components/homepage/BookTable.tsx";
+import Experience from "@components/homepage/Experience.astro";
+import Hero from "@components/homepage/Hero.astro";
+
+import Button from "@components/Button.tsx";
+---
+
+<Layout title="Welcome to Astro.">
+  <Hero />
+  <Experience />
+  <HighlightsGallery />
+  <BookTable client:load />
+  <section class="text-white relative">
+    <picture class="absolute bg-url w-full z-10">
+      <source
+        media="(min-width: 1440px)"
+        srcset={`${readyDesktop.src} 1x, ${readyDesktop2x.src} 2x`}
+      />
+      <source
+        media="(min-width: 758px)"
+        srcset={`${readyTablet.src} 1x, ${readyTablet2x.src} 2x`}
+      />
+      <img
+        class="w-full"
+        srcset={`${readyMobile.src} 1x, ${readyMobile2x.src} 2x`}
+        alt="Ready to book table"
+      />
+    </picture>
+    <div
+      class="flex flex-col gap-8 items-center z-10 relative py-32 text-center max-h-fit tablet:gap-10 tablet:max-h-[272px] desktop:max-h-[240px] desktop:flex-row justify-between desktop:px-[125px] max-w-[1440px]"
+    >
+      <h2>Ready to make a reservation?</h2>
+      <Button>Book a table</Button>
+    </div>
+  </section>
+</Layout>
