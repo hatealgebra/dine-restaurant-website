@@ -67,6 +67,7 @@ export default {
     },
     boxShadow: {
       drop: "0px 75px 100px -50px rgba(56, 66, 85, 0.50)",
+      smallerDrop: "0px 15px 25px 0px rgba(56, 66, 85, 0.25)",
     },
   },
   plugins: [],

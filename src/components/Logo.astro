@@ -5,7 +5,7 @@ const { isBig } = Astro.props;
 ---
 
 <img
-  class={`${isBig ? "h-16" : "h-10"} tablet:h-16`}
+  class={`${isBig ? "h-16" : "h-10"} tablet:h-16 max-w-fit`}
   src={logo.src}
   alt="Dine logo"
 />

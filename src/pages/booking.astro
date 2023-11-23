@@ -1,0 +1,67 @@
+---
+import heroMobile from "@images/booking/hero-bg-mobile.jpg";
+import heroMobile2x from "@images/booking/hero-bg-mobile@2x.jpg";
+import heroTablet from "@images/booking/hero-bg-tablet.jpg";
+import heroTablet2x from "@images/booking/hero-bg-tablet@2x.jpg";
+import heroDesktop from "@images/booking/hero-bg-desktop.jpg";
+import heroDesktop2x from "@images/booking/hero-bg-desktop@2x.jpg";
+
+import patternCurveBottomRight from "@images/patterns/pattern-curve-bottom-right.svg";
+import patternLines from "@images/patterns/pattern-lines.svg";
+
+import Logo from "@components/Logo.astro";
+import Layout from "../layouts/Layout.astro";
+
+import Form from "@components/Form";
+---
+
+<Layout title="Welcome to Astro.">
+  <picture class="absolute bg-url w-full h-fit overflow-hidden">
+    <source
+      media="(min-width: 769px)"
+      srcset={`${heroDesktop.src} 1x, ${heroDesktop2x.src} 2x`}
+    />
+    <source
+      media="(min-width: 500px)"
+      srcset={`${heroTablet.src} 1x, ${heroTablet2x.src} 2x`}
+    />
+    <img
+      class="w-full"
+      srcset={`${heroMobile.src} 1x, ${heroMobile2x.src} 2x`}
+      alt="Hero image with shrimps"
+    />
+  </picture>
+  <div class="px-8 pt-[5.6rem] desktop:px-[10%]">
+    <header class="relative">
+      <Logo />
+    </header>
+    <div
+      class="relative flex flex-col pb-[8.6rem] gap-[9.1rem] tablet:gap-16 tablet:pb-[12rem] desktop:flex-row desktop:items-start desktop:justify-between desktop:pb-[10.1rem] desktop:mt-[15.3rem]"
+    >
+      <div
+        class="relative z-10 text-center text-white flex flex-col desktop:items-start desktop:text-left"
+      >
+        <h1 class="mt-[4.4rem] desktop:mt-0">Reservations</h1>
+        <p
+          class="mt-[1.3rem] w-[80%] mx-auto tablet:max-w-[573px] tablet:w-full desktop:max-w-[445px] desktop:mx-0"
+        >
+          We can’t wait to host you. If you have any special requirements please
+          feel free to call on the phone number below. We’ll be happy to
+          accommodate you.
+        </p>
+      </div>
+      <Form client:load />
+    </div>
+    <div class="hidden absolute -bottom-[1rem] left-0 desktop:block">
+      <img
+        src={patternCurveBottomRight.src}
+        alt="Grey pattern with rounded bottom right corner"
+      />
+      <img
+        class="absolute bottom-[6.1rem] right-[150px]"
+        src={patternLines.src}
+        alt="Gold lines"
+      />
+    </div>
+  </div>
+</Layout>
