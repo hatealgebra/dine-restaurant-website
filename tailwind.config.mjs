@@ -15,6 +15,7 @@ export default {
         ebonyClay: "hsla(219, 21%, 18%, 1)",
         shuttleGray: "hsla(219, 14%, 42%, 1)",
         gold: "hsla(26, 22%, 51%, 1)",
+        error: "hsla(0, 43%, 50%, 1)",
       },
       fontSize: {
         sm: [

@@ -10,12 +10,7 @@ interface DropdownProps<T> extends FieldValues {
   options: T[];
 }
 
-const Dropdown = <T,>({
-  onChange,
-  onBlur,
-  value,
-  options,
-}: DropdownProps<T>) => {
+const Dropdown = <T,>({ onChange, value, options }: DropdownProps<T>) => {
   const [isActive, setIsActive] = useState(false);
 
   const toggleDropdown = () => {
@@ -50,8 +45,8 @@ const Dropdown = <T,>({
             isActive && "h-fit shadow-smallerDrop"
           }`}
         >
-          {options.map((option) => (
-            <li>
+          {options.map((option, index) => (
+            <li key={`${option}-${index}`}>
               <button
                 onClick={() => setNewValue(option)}
                 className="w-full inline-flex items-center gap-6 py-[1rem] ps-[1.2rem] pr-[1.3rem] tablet:ps-[1.6rem] tablet:pr-[3rem] hover:bg-slate-100"

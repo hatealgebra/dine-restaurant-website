@@ -3,8 +3,20 @@ import Button from "./Button";
 import Counter from "./booking/inputs/Counter";
 import Dropdown from "./booking/inputs/Dropdown";
 import TextInput from "./booking/inputs/TextInput";
+import { useState } from "react";
+
+const errorMessages = {
+  required: "This field is required",
+  incomplete: "This field is incomplete",
+  namePattern: "Please enter a valid full name",
+  emailPattern: "Please enter a valid email",
+  datePattern: "Please enter a valid date",
+  numberLengthTwo: "Please enter a number with two digits",
+};
 
 const Form = () => {
+  const [formSent, setFormSent] = useState(false);
+
   const {
     handleSubmit,
     control,
@@ -27,7 +39,9 @@ const Form = () => {
     },
   });
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    setFormSent(true);
+  };
 
   return (
     <form
@@ -37,12 +51,38 @@ const Form = () => {
       <Controller
         control={control}
         name="name"
-        render={({ field }) => <TextInput placeholder="Name" {...field} />}
+        rules={{
+          required: errorMessages.required,
+          pattern: {
+            value: /^[a-zA-Z]+ [a-zA-Z]+$/,
+            message: errorMessages.namePattern,
+          },
+        }}
+        render={({ field }) => (
+          <TextInput
+            placeholder="Name"
+            errorMessage={errors?.name?.message}
+            {...field}
+          />
+        )}
       />
       <Controller
         control={control}
         name="email"
-        render={({ field }) => <TextInput placeholder="Email" {...field} />}
+        rules={{
+          required: errorMessages.required,
+          pattern: {
+            value: /[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,5}/g,
+            message: errorMessages.emailPattern,
+          },
+        }}
+        render={({ field }) => (
+          <TextInput
+            placeholder="Email"
+            errorMessage={errors?.email?.message}
+            {...field}
+          />
+        )}
       />
       <div className="tablet:flex items-center gap-[6.6rem]">
         <label className="text-[2rem]  min-w-max" htmlFor="">
@@ -52,17 +92,57 @@ const Form = () => {
           <Controller
             control={control}
             name="date.month"
-            render={({ field }) => <TextInput placeholder="MM" {...field} />}
+            rules={{
+              required: errorMessages.required,
+              pattern: {
+                value: /^[0-1]{1}[0-2]{1}$/,
+                message: errorMessages.numberLengthTwo,
+              },
+            }}
+            render={({ field }) => (
+              <TextInput
+                placeholder="MM"
+                error={errors.name}
+                errorMessage={errors?.date?.month?.message}
+                {...field}
+              />
+            )}
           />
           <Controller
             control={control}
             name="date.day"
-            render={({ field }) => <TextInput placeholder="DD" {...field} />}
+            rules={{
+              required: errorMessages.required,
+              pattern: {
+                value: /^([1|2]{1}[0-9]{1})|30|31$/,
+                message: errorMessages.numberLengthTwo,
+              },
+            }}
+            render={({ field }) => (
+              <TextInput
+                placeholder="DD"
+                errorMessage={errors?.date?.day?.message}
+                {...field}
+              />
+            )}
           />
           <Controller
             control={control}
             name="date.year"
-            render={({ field }) => <TextInput placeholder="YYYY" {...field} />}
+            rules={{
+              required: errorMessages.required,
+              pattern: {
+                value: /^2[0-9]{3}$/,
+                message: errorMessages.numberLengthTwo,
+              },
+            }}
+            render={({ field }) => (
+              <TextInput
+                placeholder="YYYY"
+                errorMessage={errors?.date?.year?.message}
+                {...field}
+              />
+            )}
           />
         </div>
       </div>
@@ -74,12 +154,38 @@ const Form = () => {
           <Controller
             control={control}
             name="time.hour"
-            render={({ field }) => <TextInput placeholder="09" {...field} />}
+            rules={{
+              required: errorMessages.required,
+              pattern: {
+                value: /^[0 | 1]{1}[0-9]{1}$/,
+                message: errorMessages.numberLengthTwo,
+              },
+            }}
+            render={({ field }) => (
+              <TextInput
+                placeholder="09"
+                errorMessage={errors?.time?.hour?.message}
+                {...field}
+              />
+            )}
           />
           <Controller
             control={control}
             name="time.minute"
-            render={({ field }) => <TextInput placeholder="00" {...field} />}
+            rules={{
+              required: errorMessages.required,
+              pattern: {
+                value: /^[0 | 1]{1}[0-9]{1}$/,
+                message: errorMessages.numberLengthTwo,
+              },
+            }}
+            render={({ field }) => (
+              <TextInput
+                placeholder="00"
+                errorMessage={errors?.time?.minute?.message}
+                {...field}
+              />
+            )}
           />
           <Controller
             control={control}
@@ -98,6 +204,24 @@ const Form = () => {
       <Button tailwind="bg-black w-full px-2 hover:border-1 hover:border-black">
         Make reservation
       </Button>
+      {formSent && (
+        <div className="absolute inset-0 bg-white bg-opacity-90 flex justify-center items-center">
+          <div className="flex flex-col items-center gap-y-[2.4rem]">
+            <h2 className="text-[2.4rem] font-bold">
+              Thanks for your request!
+            </h2>
+            <p className="text-[1.6rem] text-center">
+              We will contact you within 24 hours to confirm your reservation.
+            </p>
+            <Button
+              tailwind="bg-black w-full px-2 hover:border-1 hover:border-black"
+              onClick={() => setFormSent(false)}
+            >
+              Close
+            </Button>
+          </div>
+        </div>
+      )}
     </form>
   );
 };
