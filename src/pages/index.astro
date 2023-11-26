@@ -16,7 +16,7 @@ import Hero from "@components/homepage/Hero.astro";
 import Button from "@components/Button.tsx";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Dine Restaurant">
   <Hero />
   <Experience />
   <HighlightsGallery />
@@ -38,10 +38,10 @@ import Button from "@components/Button.tsx";
       />
     </picture>
     <div
-      class="flex flex-col gap-8 items-center z-10 relative py-32 text-center max-h-fit tablet:gap-10 tablet:max-h-[272px] desktop:max-h-[240px] desktop:flex-row justify-between desktop:px-[125px] max-w-[1440px]"
+      class="mx-auto flex flex-col gap-8 items-center z-10 relative py-32 text-center max-h-fit tablet:gap-10 tablet:max-h-[272px] desktop:max-h-[240px] desktop:flex-row justify-between desktop:px-[125px] max-w-[1440px]"
     >
       <h2>Ready to make a reservation?</h2>
-      <Button>Book a table</Button>
+      <Button href="/booking">Book a table</Button>
     </div>
   </section>
 </Layout>

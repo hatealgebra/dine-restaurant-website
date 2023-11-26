@@ -4,8 +4,10 @@ import logo from "@images/logo.svg";
 const { isBig } = Astro.props;
 ---
 
-<img
-  class={`${isBig ? "h-16" : "h-10"} tablet:h-16 max-w-fit`}
-  src={logo.src}
-  alt="Dine logo"
-/>
+<a href="/" class="flex items-center">
+  <img
+    class={`${isBig ? "h-16" : "h-10"} tablet:h-16 max-w-fit`}
+    src={logo.src}
+    alt="Dine logo"
+  />
+</a>

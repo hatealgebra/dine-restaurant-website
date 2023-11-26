@@ -42,7 +42,7 @@ const Form = () => {
   });
 
   const onSubmit = (data: any) => {
-    console.log("Submitted");
+    if (data.honeyPot) return;
     setFormSent(true);
   };
 

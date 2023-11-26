@@ -137,7 +137,10 @@ const BookTable = () => {
         <p className="max-w-[45.7rem] mx-auto mt-[1.3rem] desktop:mx-0 desktop:min-h-[120px]">
           {currentType.text}
         </p>
-        <Button tailwind="bg-[#111] hover:border-black mt-[27px] tablet:mt-24 mx-auto desktop:mx-0">
+        <Button
+          href="/booking"
+          tailwind="w-fit bg-[#111] hover:border-black mt-[27px] tablet:mt-24 mx-auto desktop:mx-0"
+        >
           Book a table
         </Button>
       </div>
