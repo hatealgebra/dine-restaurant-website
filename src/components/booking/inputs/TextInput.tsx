@@ -5,7 +5,7 @@ import type { FieldValues } from "react-hook-form";
 const TextInput = forwardRef<HTMLInputElement, FieldValues>(
   ({ onChange, onBlur, value, placeholder, errorMessage }, inputRef) => {
     return (
-      <div>
+      <div className="relative">
         <label className="hidden" htmlFor=""></label>
         <input
           ref={inputRef}
@@ -16,7 +16,7 @@ const TextInput = forwardRef<HTMLInputElement, FieldValues>(
           onBlur={onBlur}
           value={value}
         />
-        <span className="text-error text-[1rem] leading-[1rem] inline-block mt-4">
+        <span className="absolute left-0 -bottom-8 text-error text-[1rem] leading-[1rem] inline-block">
           {errorMessage}
         </span>
       </div>

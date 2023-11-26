@@ -20,6 +20,7 @@ const Form = () => {
   const {
     handleSubmit,
     control,
+    register,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -36,10 +37,12 @@ const Form = () => {
         twelveHour: "AM",
       },
       guests: 4,
+      honeyPot: false,
     },
   });
 
   const onSubmit = (data: any) => {
+    console.log("Submitted");
     setFormSent(true);
   };
 
@@ -47,7 +50,7 @@ const Form = () => {
     <form
       className="bg-white z-10 shadow-drop leading-[1.4] h-fit p-[3.2rem] flex flex-col gap-y-[2.4rem] w-[90%] mx-auto mt-20 relative max-w-[540px] row-[3/5] col-[1/2] mb-[8.6rem]
       tablet:mt-[3.8rem] tablet:w-full tablet:mb-[12rem]
-      desktop:mx-0 desktop:p-[4.8rem] desktop:max-h-[560px] desktop:mb-0 desktop:col-[2/3] desktop:row-[2/5] desktop:mt-[15.3rem] desktop:mr-[11.5vw]"
+      desktop:mx-0 desktop:p-[4.8rem]  desktop:mb-0 desktop:col-[2/3] desktop:row-[2/5] desktop:mt-[15.3rem] desktop:mr-[11.5vw]"
       onSubmit={handleSubmit((data) => onSubmit(data))}
     >
       <Controller
@@ -203,6 +206,7 @@ const Form = () => {
         name="guests"
         render={({ field }) => <Counter {...field} />}
       />
+      <input className="hidden" type="checkbox" {...register("honeyPot")} />
       <Button tailwind="bg-black w-full px-2 hover:border-1 hover:border-black">
         Make reservation
       </Button>
