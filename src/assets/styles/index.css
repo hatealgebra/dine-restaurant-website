@@ -47,7 +47,7 @@
         @apply
             outline-transparent transition-all max-h-[5.7rem]
             border-b border-[#8E8E8E] px-[1.6rem] py-[1.4rem] text-[2rem] 
-            placeholder:capitalize placeholder:opacity-50 leading-[1.4]
+            placeholder:capitalize placeholder:opacity-50 leading-[1.4] caret-gold caret
             focus:border-[#111];
     }
 }

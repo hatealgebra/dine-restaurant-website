@@ -42,6 +42,11 @@ const Form = () => {
     },
   });
 
+  const hasDateError =
+    errors?.date?.day || errors?.date?.month || errors?.date?.year;
+
+  const hasTimeError = errors?.time?.hour || errors?.time?.minute;
+
   const onSubmit = (data: any) => {
     if (data.honeyPot) return;
     setFormSent(true);
@@ -68,6 +73,7 @@ const Form = () => {
           <TextInput
             placeholder="Name"
             errorMessage={errors?.name?.message}
+            showMessage
             {...field}
           />
         )}
@@ -86,14 +92,23 @@ const Form = () => {
           <TextInput
             placeholder="Email"
             errorMessage={errors?.email?.message}
+            showMessage
             {...field}
           />
         )}
       />
       <div className="tablet:flex items-center gap-[6.6rem]">
-        <label className="text-[2rem]  min-w-max" htmlFor="">
-          Pick a date
-        </label>
+        <div className="relative min-w-max">
+          <label
+            className={`text-[2rem] ${hasDateError && "text-error"}`}
+            htmlFor=""
+          >
+            Pick a date
+          </label>
+          <span className="absolute  min-w-max left-0 -bottom-4 text-error text-[1rem] leading-[1rem] inline-block">
+            {hasDateError && errorMessages.requiredDateTime}
+          </span>
+        </div>
         <div className="flex gap-[1.4rem]">
           <Controller
             control={control}
@@ -160,9 +175,17 @@ const Form = () => {
         </div>
       </div>
       <div className="tablet:flex items-center gap-[6.6rem]">
-        <label className="text-[2rem] min-w-max" htmlFor="">
-          Pick a time
-        </label>
+        <div className="relative min-w-max">
+          <label
+            className={`text-[2rem] ${hasTimeError && "text-error"}`}
+            htmlFor=""
+          >
+            Pick a time
+          </label>
+          <span className="absolute min-w-max left-0 -bottom-4 text-error text-[1rem] leading-[1rem] inline-block">
+            {hasTimeError && errorMessages.requiredDateTime}
+          </span>
+        </div>
         <div className="flex gap-[1.4rem]">
           <Controller
             control={control}
