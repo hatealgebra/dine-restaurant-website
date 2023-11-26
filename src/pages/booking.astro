@@ -16,32 +16,38 @@ import Form from "@components/Form";
 ---
 
 <Layout title="Welcome to Astro.">
-  <picture class="absolute bg-url w-full h-fit overflow-hidden">
-    <source
-      media="(min-width: 769px)"
-      srcset={`${heroDesktop.src} 1x, ${heroDesktop2x.src} 2x`}
-    />
-    <source
-      media="(min-width: 500px)"
-      srcset={`${heroTablet.src} 1x, ${heroTablet2x.src} 2x`}
-    />
-    <img
-      class="w-full"
-      srcset={`${heroMobile.src} 1x, ${heroMobile2x.src} 2x`}
-      alt="Hero image with shrimps"
-    />
-  </picture>
-  <div class="px-8 pt-[5.6rem] desktop:px-[11%]">
-    <header class="relative">
+  <div class="grid grid-cols-1 desktop:grid-cols-2">
+    <picture
+      class="bg-url w-full h-fit overflow-hidden row-[1/4] col-[1/2] desktop:col-[1/3]"
+    >
+      <source
+        media="(min-width: 769px)"
+        srcset={`${heroDesktop.src} 1x, ${heroDesktop2x.src} 2x`}
+      />
+      <source
+        media="(min-width: 500px)"
+        srcset={`${heroTablet.src} 1x, ${heroTablet2x.src} 2x`}
+      />
+      <img
+        class="w-full object-cover max-h-[590px]"
+        srcset={`${heroMobile.src} 1x, ${heroMobile2x.src} 2x`}
+        alt="Hero image with shrimps"
+      />
+    </picture>
+    <header
+      class="relative row-[1/2] col-[1/2] mx-8 mt-[5.6rem] desktop:mx-[11.5vw]"
+    >
       <Logo />
     </header>
     <div
-      class="relative flex flex-col pb-[8.6rem] gap-[9.1rem] tablet:gap-16 tablet:pb-[12rem] desktop:flex-row desktop:items-start desktop:justify-between desktop:pb-[10.1rem] desktop:mt-[15.3rem]"
+      class="relative flex flex-col gap-[9.1rem] row-[2/3] col-[1/2] mt-[4.4rem]
+        tablet:gap-16 tablet:mt-28
+        desktop:flex-row desktop:items-start desktop:justify-between desktop:mt-[15.3rem] desktop:ml-[11.5vw]"
     >
       <div
         class="relative z-10 text-center text-white flex flex-col desktop:items-start desktop:text-left"
       >
-        <h1 class="mt-[4.4rem] desktop:mt-0">Reservations</h1>
+        <h1 class="desktop:mt-0">Reservations</h1>
         <p
           class="mt-[1.3rem] w-[80%] mx-auto tablet:max-w-[573px] tablet:w-full desktop:max-w-[445px] desktop:mx-0"
         >
@@ -50,15 +56,18 @@ import Form from "@components/Form";
           accommodate you.
         </p>
       </div>
-      <Form client:load />
     </div>
-    <div class="hidden absolute -bottom-[1rem] left-0 desktop:block">
+    <Form client:load />
+    <div
+      class="relative left-0 desktop:block h-[320px] row-[4/5] col-[1/3] max-w-[70vw]"
+    >
       <img
+        class="hidden absolute desktop:block w-full h-full"
         src={patternCurveBottomRight.src}
         alt="Grey pattern with rounded bottom right corner"
       />
       <img
-        class="absolute bottom-[6.1rem] right-[150px]"
+        class="hidden absolute right-[13vw] bottom-28 desktop:block min-[1600px]:right-[16vw]"
         src={patternLines.src}
         alt="Gold lines"
       />
