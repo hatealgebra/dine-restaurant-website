@@ -9,7 +9,8 @@ const errorMessages = {
   required: "This field is required",
   incomplete: "This field is incomplete",
   namePattern: "Please enter a valid full name",
-  emailPattern: "Please enter a valid email",
+  emailPattern: "Please use a valid email address",
+  requiredDateTime: "This field is incomplete",
   datePattern: "Please enter a valid date",
   numberLengthTwo: "Please enter a number with two digits",
 };
@@ -98,7 +99,7 @@ const Form = () => {
             control={control}
             name="date.month"
             rules={{
-              required: errorMessages.required,
+              required: errorMessages.requiredDateTime,
               pattern: {
                 value: /^[0-1]{1}[0-2]{1}$/,
                 message: errorMessages.numberLengthTwo,
@@ -108,6 +109,13 @@ const Form = () => {
               <TextInput
                 placeholder="MM"
                 error={errors.name}
+                rules={{
+                  required: errorMessages.requiredDateTime,
+                  pattern: {
+                    value: /^[0-1]{1}[0-2]{1}$/,
+                    message: errorMessages.numberLengthTwo,
+                  },
+                }}
                 errorMessage={errors?.date?.month?.message}
                 {...field}
               />
@@ -117,7 +125,7 @@ const Form = () => {
             control={control}
             name="date.day"
             rules={{
-              required: errorMessages.required,
+              required: errorMessages.requiredDateTime,
               pattern: {
                 value: /^([1|2]{1}[0-9]{1})|30|31$/,
                 message: errorMessages.numberLengthTwo,
@@ -135,7 +143,7 @@ const Form = () => {
             control={control}
             name="date.year"
             rules={{
-              required: errorMessages.required,
+              required: errorMessages.requiredDateTime,
               pattern: {
                 value: /^2[0-9]{3}$/,
                 message: errorMessages.numberLengthTwo,
@@ -160,7 +168,7 @@ const Form = () => {
             control={control}
             name="time.hour"
             rules={{
-              required: errorMessages.required,
+              required: errorMessages.requiredDateTime,
               pattern: {
                 value: /^[0 | 1]{1}[0-9]{1}$/,
                 message: errorMessages.numberLengthTwo,
@@ -178,7 +186,7 @@ const Form = () => {
             control={control}
             name="time.minute"
             rules={{
-              required: errorMessages.required,
+              required: errorMessages.requiredDateTime,
               pattern: {
                 value: /^[0 | 1]{1}[0-9]{1}$/,
                 message: errorMessages.numberLengthTwo,
