@@ -20,7 +20,7 @@ import patternLines from "@images/patterns/pattern-lines.svg";
 ---
 
 <section
-  class="relative px-[24px] text-center bg-90 bg-gradient-to-b from-black via-transparent via-5% to-white from-5% desktop:bg-none desktop:text-left desktop:px-[16.5rem]"
+  class="relative px-[24px] text-center bg-90 bg-gradient-to-b from-gray-950 via-transparent via-5% to-white from-5% desktop:bg-none desktop:text-left desktop:px-[16.5rem] max-w-[1920px] mx-auto"
 >
   <div class="desktop:flex desktop:gap-[12.5rem] desktop:items-center">
     <img
@@ -30,7 +30,7 @@ import patternLines from "@images/patterns/pattern-lines.svg";
     />
     <picture class="relative bg-url w-fit z-10 desktop:bottom-32">
       <source
-        media="(min-width:1440px)"
+        media="(min-width:1200px)"
         srcset={`${landscapeDesktop.src} 1x, ${landscapeDesktop2x.src} 2x`}
       />
       <source
@@ -45,7 +45,7 @@ import patternLines from "@images/patterns/pattern-lines.svg";
     </picture>
     <div>
       <img
-        class="m-auto mt-20 desktop:mx-0"
+        class="m-auto mt-20 h-auto desktop:mx-0"
         src={dividerLine.src}
         alt="Divider line"
       />
@@ -64,7 +64,7 @@ import patternLines from "@images/patterns/pattern-lines.svg";
     <div class="tablet:relative">
       <picture class="relative bg-url w-fit z-10 desktop:top-32">
         <source
-          media="(min-width:1440px)"
+          media="(min-width:1200px)"
           srcset={`${locallyDesktop.src} 1x, ${locallyDesktop2x.src} 2x`}
         />
         <source

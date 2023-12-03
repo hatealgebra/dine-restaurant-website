@@ -6,7 +6,7 @@ export default {
       screens: {
         mobile: "375px",
         tablet: "768px",
-        desktop: "1440px",
+        desktop: "1200px",
       },
       colors: {
         beaver: "hsla(26, 22%, 51%, 1)",

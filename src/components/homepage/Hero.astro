@@ -11,9 +11,9 @@ import Button from "@components/Button.tsx";
 ---
 
 <header
-  class="relative flex flex-col text-center h-[90vh] desktop:text-left desktop:h-95vh"
+  class="relative flex flex-col text-center h-fit desktop:text-left pb-[10vh] desktop:pb-[300px]"
 >
-  <picture class="absolute bg-url w-full h-full overflow-hidden">
+  <picture class="absolute bg-url w-full h-full overflow-hidden max-h-[1200px]">
     <source
       media="(min-width: 769px)"
       srcset={`${heroDesktop.src} 1x, ${heroDesktop2x.src} 2x`}
@@ -23,13 +23,13 @@ import Button from "@components/Button.tsx";
       srcset={`${heroTablet.src} 1x, ${heroTablet2x.src} 2x`}
     />
     <img
-      class="w-full"
+      class="w-full object-cover h-full"
       srcset={`${heroMobile.src} 1x, ${heroMobile2x.src} 2x`}
       alt="Hero image with shrimps"
     />
   </picture>
   <div
-    class="text-white z-10 mt-[55%] px-[24px] flex flex-col items-center desktop:mt-[6.5rem] desktop:px-[16.5rem] desktop:items-start"
+    class="text-white z-10 mt-[40%] px-[24px] flex flex-col tablet:mt-[10%] items-center max-w-[1920px] w-full mx-auto desktop:mt-[6.5rem] desktop:px-[16.5rem] desktop:items-start"
   >
     <Logo />
     <h1 class="mt-9 desktop:mt-[15.3rem]">

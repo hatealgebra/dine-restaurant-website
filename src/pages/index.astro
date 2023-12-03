@@ -22,9 +22,9 @@ import Button from "@components/Button.tsx";
   <HighlightsGallery />
   <BookTable client:load />
   <section class="text-white relative">
-    <picture class="absolute bg-url w-full z-10">
+    <picture class="absolute bg-url w-full h-full z-10">
       <source
-        media="(min-width: 1440px)"
+        media="(min-width: 1920px)"
         srcset={`${readyDesktop.src} 1x, ${readyDesktop2x.src} 2x`}
       />
       <source
@@ -32,13 +32,13 @@ import Button from "@components/Button.tsx";
         srcset={`${readyTablet.src} 1x, ${readyTablet2x.src} 2x`}
       />
       <img
-        class="w-full"
+        class="w-full h-full object-cover"
         srcset={`${readyMobile.src} 1x, ${readyMobile2x.src} 2x`}
         alt="Ready to book table"
       />
     </picture>
     <div
-      class="mx-auto flex flex-col gap-8 items-center z-10 relative py-32 text-center max-h-fit tablet:gap-10 tablet:max-h-[272px] desktop:max-h-[240px] desktop:flex-row justify-between desktop:px-[125px] max-w-[1440px]"
+      class="mx-auto flex flex-col gap-8 items-center z-10 relative py-32 text-center max-h-fit tablet:gap-10 tablet:max-h-[272px] desktop:max-h-[240px] desktop:flex-row justify-between desktop:px-[125px] max-w-[1920px]"
     >
       <h2>Ready to make a reservation?</h2>
       <Button href="/booking">Book a table</Button>

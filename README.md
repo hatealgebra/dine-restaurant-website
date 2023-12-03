@@ -29,8 +29,6 @@ Users should be able to:
 
 ### Screenshot
 
-![iPhone](./iPhone.jpeg)
-![iPad](./iPad.jpeg)
 ![MBP](./MBP.jpeg)
 
 ### Links

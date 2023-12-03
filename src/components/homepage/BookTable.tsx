@@ -69,7 +69,7 @@ const BookTable = () => {
   const [currentType, setCurrentType] = useState(content[0]);
 
   return (
-    <section className="relative px-[2.4rem] pt-32 pb-[12.4rem] text-center desktop:flex desktop:flex-row desktop:px-[16.5rem] desktop:gap-[12.5rem] desktop:text-left">
+    <section className="relative px-[2.4rem] pt-32 pb-[12.4rem] max-w-[1920px] mx-auto text-center desktop:flex desktop:flex-row desktop:px-[16.5rem] desktop:gap-[12.5rem] desktop:text-left">
       <img
         className="absolute hidden w-[50%] h-[320px] tablet:block tablet:left-0 tablet:top-0"
         src={topRightPattern.src}
@@ -77,7 +77,7 @@ const BookTable = () => {
       <div className="relative z-10">
         <picture>
           <source
-            media="(min-width:1440px)"
+            media="(min-width:1920px)"
             srcSet={`${currentType.images.desktop.src} 1x, ${currentType.images.desktop2x.src} 2x`}
           />
           <source
